@@ -51,7 +51,7 @@ if (loginForm) {
         const data = await res.json();
         localStorage.setItem("token", data.token);
         alert("Login successful!");
-        window.location.href = "dashboard.html";
+        window.location.href = "index.html";
       } else {
         alert("Invalid username or password!");
       }
