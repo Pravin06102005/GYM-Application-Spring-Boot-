@@ -150,19 +150,22 @@
          * Constructs the full URL for the equipment image using the API base URL.
          * Assumes the DTO returns a path like '/uploads/treadmill.jpg'.
          */
-      function buildImageUrl(path) {
-    if (path) {
-        // If backend returns full URL, use it as-is
-        if (path.startsWith("http://") || path.startsWith("https://")) {
-            return path;
-        }
-
-        // ✅ FIX: Ensure image loads from Spring Boot `/uploads/`
-        return `${API_BASE_URL}/uploads/${path}`;
+     function buildImageUrl(path) {
+    if (!path) {
+        return "https://picsum.photos/400/250?random=5"; // fallback image
     }
 
-    return 'https://picsum.photos/400/220?category=machine&random=7';
+    // Trim starting slash to avoid `/uploads/uploads/...`
+    path = path.replace(/^\/+/, "");
+
+    // If already full URL → return as-is
+    if (path.startsWith("http")) {
+        return path;
+    }
+
+    return `${API_BASE_URL}/uploads/${path}`;
 }
+
 
 
         async function fetchJson(endpoint) {
