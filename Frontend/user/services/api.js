@@ -1,6 +1,6 @@
 // user/services/api.js
-const API_BASE = "http://localhost:8080/api";
-const IMAGE_BASE = "http://localhost:8080/uploads/";
+const API_BASE = "http://gym-7jsc.onrender.com/api";
+const IMAGE_BASE = "http://gym-7jsc.onrender.com/uploads/";
 
 /**
  * Build usable image URL from backend response field.
