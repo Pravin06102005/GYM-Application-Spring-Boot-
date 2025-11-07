@@ -274,13 +274,14 @@
         }
 
         // --- IMAGE URL RESOLUTION FUNCTION (FIXED) ---
-        function getFullImageUrl(imagePath) {
-            // Assuming the API returns the path (e.g., 'plans/image.jpg')
-            if (imagePath && !imagePath.startsWith('http')) {
-                return `${BASE_URL}/images/${imagePath}`;
-            }
-            return imagePath; 
-        }
+       function getFullImageUrl(imagePath) {
+    if (imagePath && !imagePath.startsWith("http")) {
+        return `${BASE_URL}/uploads/${imagePath}`;
+    }
+    return imagePath;
+}
+
+        
         
         // --- UTILITY: HYBRID DATA PACKAGING (unchanged) ---
         function createPlanFormData(name, description, duration, price, imageFile) {
