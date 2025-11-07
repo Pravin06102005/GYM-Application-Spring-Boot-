@@ -1,6 +1,6 @@
 // admin/js/admin.js
 
-const API_URL = "http://localhost:8080/api/admin/auth";
+const API_URL = "https://gym-7jsc.onrender.com/admin/auth";
 
 // ================== REGISTER ==================
 const registerForm = document.getElementById("registerForm");
