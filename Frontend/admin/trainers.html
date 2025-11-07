@@ -287,12 +287,13 @@
 
 
         // --- IMAGE URL FIX FUNCTION ---
-        function getFullImageUrl(imagePath) {
-            if (imagePath && !imagePath.startsWith('http')) {
-                return `${BASE_URL}/images/${imagePath}`;
-            }
-            return imagePath; 
-        }
+       function getFullImageUrl(imagePath) {
+    if (imagePath && !imagePath.startsWith("http")) {
+        return `${BASE_URL}/uploads/${imagePath}`;
+    }
+    return imagePath;
+}
+
         // ------------------------------
 
         // --- UTILITY: HYBRID DATA PACKAGING (Matching Spring's @RequestPart) ---
