@@ -16,7 +16,9 @@ public class CorsConfig {
                 registry.addMapping("/**")
                         .allowedOrigins(
                             "https://fitclub-admin1.netlify.app",
-                            "https://fit-gym1.netlify.app"
+                            "https://fit-gym1.netlify.app",
+                            "http://localhost:3000",
+                            "http://localhost:5173"
                         )
                         .allowedMethods("GET", "POST", "PUT", "DELETE")
                         .allowedHeaders("*")
