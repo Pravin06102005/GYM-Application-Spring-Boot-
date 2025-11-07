@@ -244,7 +244,13 @@
             alert("Please login first!");
             window.location.href = "login.html";
         }
-
+      // --- IMAGE URL RESOLUTION FUNCTION (FIXED) ---
+       function getFullImageUrl(imagePath) {
+    if (imagePath && !imagePath.startsWith("http")) {
+        return `${BASE_URL}/uploads/${imagePath}`;
+    }
+    return imagePath;
+}
         // --- NEW MOBILE TOGGLE SETUP ---
         const sidebar = document.getElementById('gymSidebar');
         const openBtn = document.getElementById('openSidebarBtn');
