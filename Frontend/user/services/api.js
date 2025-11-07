@@ -1,6 +1,6 @@
 // user/services/api.js
-const API_BASE = "http://gym-7jsc.onrender.com/api";
-const IMAGE_BASE = "http://gym-7jsc.onrender.com/uploads/";
+const API_BASE = "https://gym-application-spring-boot.onrender.com/api";
+const IMAGE_BASE = "https://gym-application-spring-boot.onrender.com/uploads/";
 
 /**
  * Build usable image URL from backend response field.
