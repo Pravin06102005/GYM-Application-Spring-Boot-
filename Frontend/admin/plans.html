@@ -274,12 +274,13 @@
         }
 
         // --- IMAGE URL RESOLUTION FUNCTION (FIXED) ---
- function getFullImageUrl(imagePath) {
+function getFullImageUrl(imagePath) {
     if (imagePath && !imagePath.startsWith("http")) {
-        return `${BASE_URL}/images/${imagePath}`;
+        return `${BASE_URL}/uploads/${imagePath}`;
     }
     return imagePath;
 }
+
 
 
         
