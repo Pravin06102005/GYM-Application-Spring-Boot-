@@ -161,19 +161,24 @@
         
         // --- Utility Functions ---
         
-    function buildImageUrl(path) {
-    if (path) {
-        // If backend returns full URL, use it as-is
-        if (path.startsWith("http://") || path.startsWith("https://")) {
-            return path;
-        }
-
-        // ✅ FIX: Ensure image loads from Spring Boot `/uploads/`
-        return `${API_BASE_URL}/uploads/${path}`;
+ function buildImageUrl(path) {
+    if (!path) {
+        return "https://picsum.photos/400/220?random=7"; // fallback
     }
 
-    return 'https://picsum.photos/400/220?category=machine&random=7';
+    // Remove leading slashes from path (avoid `/uploads/uploads/...`)
+    path = path.replace(/^\/+/, "");
+
+    // If path is already absolute URL, return as is
+    if (path.startsWith("http://") || path.startsWith("https://")) {
+        return path;
+    }
+
+    // Return final formatted image URL
+    return `${API_BASE_URL}/uploads/${path}`;
 }
+
+
 
 
         async function fetchJson(endpoint) {
