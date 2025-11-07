@@ -152,17 +152,23 @@
         
         // --- Utility Functions ---
         
-        function buildImageUrl(path) {
-            if (path) {
-                if (path.startsWith("http://") || path.startsWith("https://")) {
-                    return path;
-                }
-                // Assumes path is relative to the backend's /uploads/ handler
-                const cleanedPath = path.startsWith('/') ? path.substring(1) : path;
-                return `${API_BASE_URL}/uploads/${cleanedPath}`;
-            }
-            return 'https://picsum.photos/400/250?grayscale&random=7'; // Fallback
-        }
+      function buildImageUrl(path) {
+    if (!path) {
+        return "https://picsum.photos/400/250?grayscale&random=7";
+    }
+
+    // ✅ If already absolute URL (HTTP/HTTPS), return as is
+    if (path.startsWith("http://") || path.startsWith("https://")) {
+        return path;
+    }
+
+    // ✅ Remove any leading `/uploads/` to avoid /uploads/uploads duplication
+    path = path.replace(/^\/?uploads\/?/, "");
+
+    // ✅ Final correct location
+    return `${API_BASE_URL}/uploads/${path}`;
+}
+
 
         async function fetchJson(endpoint) {
             const url = `${API_BASE_URL}${endpoint}`;
