@@ -287,12 +287,13 @@
 
 
         // --- IMAGE URL FIX FUNCTION ---
-       function getFullImageUrl(imagePath) {
+   function getFullImageUrl(imagePath) {
     if (imagePath && !imagePath.startsWith("http")) {
         return `${BASE_URL}/uploads/${imagePath}`;
     }
     return imagePath;
 }
+
 
         // ------------------------------
 
