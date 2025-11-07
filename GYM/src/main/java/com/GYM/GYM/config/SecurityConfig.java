@@ -44,6 +44,7 @@ public class SecurityConfig {
                     CorsConfiguration config = new CorsConfiguration();
                     config.setAllowCredentials(true);
                     config.setAllowedOrigins(List.of(
+                            "https://fitclub-admin1.netlify.app",
                             "http://127.0.0.1:5500",
                             "http://localhost:5500",
                             "http://localhost:3000"
@@ -54,6 +55,7 @@ public class SecurityConfig {
                 }))
 
                 // 🔹 No session — stateless JWT
+                .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 
                 // 🔹 Define authorization rules
