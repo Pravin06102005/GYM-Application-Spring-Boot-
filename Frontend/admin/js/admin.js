@@ -1,6 +1,6 @@
 // admin/js/admin.js
 
-const API_URL = "https://gym-application-spring-boot.onrender.com/admin/auth";
+const API_URL = "https://gym-application-spring-boot.onrender.com/api/admin/auth";
 
 // ================== REGISTER ==================
 const registerForm = document.getElementById("registerForm");
